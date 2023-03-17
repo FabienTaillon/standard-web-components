@@ -1,0 +1,21 @@
+<html>
+    <script>
+        function helloHere() {
+            console.log('Hello here');
+        }
+    </script>
+    <body>
+        <vscode-button id="howdy">VS Code</vscode-button>
+        <md-filled-button label="Complete"></md-filled-button>
+        <button onclick="helloHere()">Hello here</button>
+        <button onclick="helloThere()">Hello there</button>
+        <script type="module">
+            import { helloThere } from './modules/vscode-ui-toolkit.js';
+            import { provideVSCodeDesignSystem, vsCodeButton } from "@vscode/webview-ui-toolkit";
+            import '@material/web/button/filled-button.js';
+            
+            window.helloThere = helloThere;
+            provideVSCodeDesignSystem().register(vsCodeButton());
+        </script>
+    </body>
+</html>
