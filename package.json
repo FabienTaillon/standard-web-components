@@ -5,18 +5,32 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx rollup -p @rollup/plugin-node-resolve index.js > bundle.js",
-    "start": "web-dev-server --node-resolve --open --watch"
+    "build-lightning-wc": "npx rollup -p @rollup/plugin-node-resolve ./src/modules/vscode-wc.js > ./modules/bundle-vscode-wc.js",
+    "build-vscode-wc": "npx rollup -p @rollup/plugin-node-resolve ./src/modules/vscode-wc.js > ./modules/bundle-vscode-wc.js",
+    "build-material-wc": "npx rollup -p @rollup/plugin-node-resolve ./modules-src/material-wc.js > ./modules/material-wc.js",
+    "build-all-wc": "npx rollup -p @rollup/plugin-node-resolve ./modules-src/all-wc.js > ./modules/all-wc.js",
+    "build": "npm run build-vscode-wc && npm run build-material-wc",
+    "build-rollup": "rollup --config",
+    "start": "npm run build-rollup && web-dev-server --node-resolve --open --watch",
+    "start-bare": "npm run build-rollup && http-server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-web-components/google-chart": "^5.0.5",
+    "@lwc/rollup-plugin": "^2.40.1",
     "@material/web": "^1.0.0-pre.4",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@salesforce-ux/design-system": "^2.22.2",
+    "@smarthtmlelements/smart-carousel": "^6.2.0",
     "@vscode/webview-ui-toolkit": "^1.2.2",
+    "emoji-picker-element": "^1.21.0",
+    "lightning-base-components": "^1.21.1-alpha",
+    "lwc": "^2.40.1",
     "rollup": "^2.79.1"
   },
   "devDependencies": {
+    "@rollup/plugin-replace": "^5.0.2",
     "@web/dev-server": "^0.1.36",
     "http-server": "^14.1.1"
   }

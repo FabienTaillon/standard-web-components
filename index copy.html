@@ -1,0 +1,87 @@
+<html>
+    <script type="module" src="./modules/vscode-wc.js"></script>
+    <script type="module" src="./modules/material-wc.js"></script>
+    <script type="module" src="./modules/my-wc.js"></script>
+    <!--<script type="module" src="./modules/myButton.js"></script>-->
+    <script type="module" src="./modules/lwc/lightning-button.js"></script>
+    <script type="module">
+        import '@google-web-components/google-chart';
+    </script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+
+    <!--
+    <script type="module">
+        import * as MyButton from './modules/myButton.js';
+        
+        //window.LightningButton = b;
+        console.log(MyButton);
+        console.log(MyButton.CustomElementConstructor);
+        //customElements.define('lightning-button', LightningButton.CustomElementConstructor);
+    </script>
+
+    <script type="module">
+        import * as LightningButton from './modules/button.js';
+        
+        //window.LightningButton = b;
+        //console.log(LightningButton);
+        //console.log(LightningButton.CustomElementConstructor);
+        //customElements.define('lightning-button', LightningButton.CustomElementConstructor);
+    </script>
+    -->
+
+    <!--
+    <script src="./modules/vscode-wc.js"></script>
+    <script src="./modules/material-wc.js"></script>
+    -->
+    <!--
+    <script src="./modules/all-wc.js"></script>
+    -->
+
+    <body>
+        <div style="margin-bottom: 10px;">
+            <vscode-button>VS Code<my-element></my-element></vscode-button>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <md-filled-button label="Material Web Component"></md-filled-button>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <lightning-button label="LWC" variant="brand"></lightning-button>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <my-element></my-element>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <google-chart data='[["Month", "Days"], ["Jan", 31]]'></google-chart>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <emoji-picker onemoji-click="alert('hello')"></emoji-picker>
+        </div>
+
+        <vscode-data-grid aria-label="Basic">
+            <vscode-data-grid-row row-type="header">
+              <vscode-data-grid-cell cell-type="columnheader" grid-column="1">Header 1</vscode-data-grid-cell>
+              <vscode-data-grid-cell cell-type="columnheader" grid-column="2">Header 2</vscode-data-grid-cell>
+              <vscode-data-grid-cell cell-type="columnheader" grid-column="3">Header 3</vscode-data-grid-cell>
+              <vscode-data-grid-cell cell-type="columnheader" grid-column="4">Header 4</vscode-data-grid-cell>
+            </vscode-data-grid-row>
+            <vscode-data-grid-row>
+              <vscode-data-grid-cell grid-column="1">Cell Data</vscode-data-grid-cell>
+              <vscode-data-grid-cell grid-column="2">Cell Data</vscode-data-grid-cell>
+              <vscode-data-grid-cell grid-column="3">Cell Data</vscode-data-grid-cell>
+              <vscode-data-grid-cell grid-column="4">Cell Data</vscode-data-grid-cell>
+            </vscode-data-grid-row>
+            <vscode-data-grid-row>
+              <vscode-data-grid-cell grid-column="1">Cell Data</vscode-data-grid-cell>
+              <vscode-data-grid-cell grid-column="2">Cell Data</vscode-data-grid-cell>
+              <vscode-data-grid-cell grid-column="3">Cell Data</vscode-data-grid-cell>
+              <vscode-data-grid-cell grid-column="4">Cell Data</vscode-data-grid-cell>
+            </vscode-data-grid-row>
+            <vscode-data-grid-row>
+              <vscode-data-grid-cell grid-column="1">Cell Data</vscode-data-grid-cell>
+              <vscode-data-grid-cell grid-column="2">Cell Data</vscode-data-grid-cell>
+              <vscode-data-grid-cell grid-column="3">Cell Data</vscode-data-grid-cell>
+              <vscode-data-grid-cell grid-column="4">Cell Data</vscode-data-grid-cell>
+            </vscode-data-grid-row>
+          </vscode-data-grid>
+    </body>
+</html>
