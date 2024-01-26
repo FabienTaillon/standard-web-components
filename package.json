@@ -2,36 +2,36 @@
   "name": "web-component-no-bundle",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-lightning-wc": "npx rollup -p @rollup/plugin-node-resolve ./src/modules/vscode-wc.js > ./modules/bundle-vscode-wc.js",
-    "build-vscode-wc": "npx rollup -p @rollup/plugin-node-resolve ./src/modules/vscode-wc.js > ./modules/bundle-vscode-wc.js",
-    "build-material-wc": "npx rollup -p @rollup/plugin-node-resolve ./modules-src/material-wc.js > ./modules/material-wc.js",
-    "build-all-wc": "npx rollup -p @rollup/plugin-node-resolve ./modules-src/all-wc.js > ./modules/all-wc.js",
-    "build": "npm run build-vscode-wc && npm run build-material-wc",
-    "build-rollup": "rollup --config",
-    "start": "npm run build-rollup && web-dev-server --node-resolve --open --watch",
-    "start-bare": "npm run build-rollup && http-server"
+    "copy-slds-button": "cp node_modules/@salesforce-ux/design-system/css/buttons/base/index.css node_modules/lightning-base-components/src/lightning/button/button.css",
+    "copy-slds-card": "cp node_modules/@salesforce-ux/design-system/css/cards/base/index.css node_modules/lightning-base-components/src/lightning/card/card.css",
+    "build-vscode-wc": "rollup --config rollup.config.vscode.js",
+    "build-material-wc": "rollup --config rollup.config.material.js",
+    "build-googlechart-wc": "rollup --config rollup.config.googlechart.js",
+    "build-lightning-button-wc": "npm run copy-slds-button && rollup --config rollup.config.lightning-button.js",
+    "build-lightning-card-wc": "npm run copy-slds-card && rollup --config rollup.config.lightning-card.js",
+    "build-my-wc": "cp src/modules/my-wc.js modules/bundle-my-wc.js",
+    "build": "npm run build-vscode-wc && npm run build-material-wc && npm run build-lightning-button-wc && npm run build-lightning-card-wc && npm run build-googlechart-wc && npm run build-my-wc",
+    "start": "http-server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@google-web-components/google-chart": "^5.0.5",
-    "@lwc/rollup-plugin": "^2.40.1",
-    "@material/web": "^1.0.0-pre.4",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@salesforce-ux/design-system": "^2.22.2",
-    "@smarthtmlelements/smart-carousel": "^6.2.0",
-    "@vscode/webview-ui-toolkit": "^1.2.2",
-    "emoji-picker-element": "^1.21.0",
-    "lightning-base-components": "^1.21.1-alpha",
-    "lwc": "^2.40.1",
-    "rollup": "^2.79.1"
+    "@google-web-components/google-chart": "^3.0.0",
+    "@lwc/rollup-plugin": "^6.0.0",
+    "@material/web": "^1.2.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@salesforce-ux/design-system": "^2.23.1",
+    "@vscode/webview-ui-toolkit": "^1.4.0",
+    "lightning-base-components": "^1.21.3-alpha",
+    "lwc": "^6.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-replace": "^5.0.2",
-    "@web/dev-server": "^0.1.36",
-    "http-server": "^14.1.1"
+    "@rollup/plugin-replace": "^5.0.5",
+    "@web/dev-server": "^0.4.1",
+    "http-server": "^14.1.1",
+    "rollup": "^4.9.6"
   }
 }

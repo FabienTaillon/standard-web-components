@@ -1,7 +1,63 @@
 <html>
-    <script type="module" src="./modules/vscode-wc.js"></script>
+  <script type="module" src="./modules/bundle-vscode-wc.js"></script>
+  <script type="module" src="./modules/bundle-material-wc.js"></script>
+  <script type="module" src="./modules/lightning/lightning-button-wc.js"></script>
+  <script type="module" src="./modules/lightning/lightning-card-wc.js"></script>
+  <script type="module" src="./modules/bundle-googlechart-wc.js"></script>
+  <script type="module" src="./modules/bundle-my-wc.js"></script>
 
-    <body>
-        <vscode-button>VS Code</vscode-button>
-    </body>
+  <style>
+    body {
+      font-family: system-ui;
+    }
+    :root {
+      --md-filled-button-label-text-font: system-ui;
+    }
+  </style>
+
+  <body>
+    <!-- FAST -->
+    <div style="margin-bottom: 10px">
+      <vscode-button>VS Code</vscode-button>
+    </div>
+
+    <!-- LIT -->
+    <div style="margin-bottom: 10px">
+      <md-filled-button>Material</md-filled-button>
+    </div>
+
+    <!-- LWC -->
+    <div style="margin-bottom: 10px">
+      <lightning-button label="LWC" variant="brand"></lightning-button>
+    </div>
+
+    <!-- NO FRAMEWORK -->
+    <div style="margin-bottom: 10px">
+      <my-element></my-element>
+    </div>
+
+    <!-- LIT -->
+    <!--
+    <div style="margin-bottom: 10px">
+      <google-chart
+        data='[["MicroBreweries", "Number"], ["France", 2500], ["UK", 1810], ["Germany", 1512], ["Switzerland", 1278], ["Netherlands", 910]]'
+        type="pie"
+      ></google-chart>
+    </div>
+    -->
+
+    <!-- LWC -->
+    <!--
+    <div style="margin-bottom: 10px; max-width: 800px;">
+        <lightning-card title="My Awesome Card">
+            <p style="margin-left: 200px">
+              My Awesome Card content
+            </p>
+            <p slot="footer">
+              <lightning-button label="My Button"></lightning-button>
+              <vscode-button>My Button</vscode-button>
+            </p>
+        </lightning-card>
+      -->
+  </body>
 </html>
